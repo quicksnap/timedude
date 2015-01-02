@@ -19,16 +19,14 @@ function preload() {
 
 function create() {
 
-    //  This creates a simple sprite that is using our loaded image and
-    //  displays it on-screen
-
     game.stage.backgroundColor = '#ffffff';
 
-    game.physics.startSystem(Phaser.Physics.P2JS);
+    cursors = game.input.keyboard.createCursorKeys();
 
-    dude = game.add.sprite(0, 110, 'dude');
+    dude = game.add.sprite(32, 110, 'dude');
 
     // Physics
+    game.physics.startSystem(Phaser.Physics.P2JS);
     game.physics.p2.enable( dude );
     dude.body.setZeroDamping();
     dude.body.fixedRotation = true;
@@ -38,10 +36,6 @@ function create() {
     dude.animations.add( 'walkUp',    [0,1,2,3,4],               10, true );
     dude.animations.add( 'walkDown',  [8,9,10,11,12],            10, true );
     dude.animations.add( 'idle',      [10]                                );
-
-    dude.animations.play('walkRight');
-
-    cursors = game.input.keyboard.createCursorKeys();
 
 }
 
